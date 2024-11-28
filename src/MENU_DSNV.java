@@ -7,7 +7,7 @@ public class MENU_DSNV {
         while (true) {
             int luachon;
             IN_MENU inmenu1 = new IN_MENU();
-            luachon = inmenu1.menu("Nhan Vien", false);
+            luachon = inmenu1.menu("Nhan Vien", true);
             switch (luachon) {
                 case 0 -> {
                     System.out.println("Thoat chuong trinh.");

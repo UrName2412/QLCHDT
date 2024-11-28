@@ -180,20 +180,18 @@ public class DSSP implements iQUANLY, iTIEMNANG {
         try {
             FileWriter fw = new FileWriter("database/SANPHAM.txt");
             for (SANPHAM sanpham : ds) {
-                if (sanpham.getLoai() != null && sanpham.getLoai().equals("Tablet")) {
-                    TABLET obj = (TABLET) sanpham;
-                    fw.write("Tablet" + "," + obj.getIdSanPham() + "," + obj.getHang() + "," + obj.getModel() + ","
-                            + obj.getKichThuoc() + "," + obj.getGia() + "," + obj.getKhoiLuong() + ","
-                            + obj.getDungLuong()
-                            + "," + obj.getRam() + "," + obj.getChip() + "," + obj.getBanPhim() + "," + obj.getsoLuong()
-                            + "\n");
-                } else if (sanpham.getLoai() != null && sanpham.getLoai().equals("DienThoai")) {
+                if (sanpham.getLoai() != null && sanpham.getLoai().equals("DienThoai")) {
                     DIENTHOAI obj = (DIENTHOAI) sanpham;
                     fw.write("DienThoai" + "," + obj.getIdSanPham() + "," + obj.getHang() + "," + obj.getModel() + ","
                             + obj.getKichThuoc() + "," + obj.getGia() + "," + obj.getKhoiLuong() + ","
                             + obj.getDungLuong()
-                            + "," + obj.getRam() + "," + obj.getChip() + "," + obj.getcamUng() + "," + obj.getSoLuong()
-                            + "\n");
+                            + "," + obj.getRam() + "," + obj.getChip() + "," + obj.getcamUng() + "," +  obj.getSoLuong() + "\n");
+                } else if (sanpham.getLoai() != null && sanpham.getLoai().equals("Tablet")) {
+                    TABLET obj = (TABLET) sanpham;
+                    fw.write("Tablet" + "," + obj.getIdSanPham() + "," + obj.getHang() + "," + obj.getModel() + ","
+                            + obj.getKichThuoc() + "," + obj.getGia() + "," + obj.getKhoiLuong() + ","
+                            + obj.getDungLuong()
+                            + "," + obj.getRam() + "," + obj.getChip() + "," + obj.getBanPhim() + "," +  obj.getsoLuong() + "\n");
                 }
             }
             fw.close();

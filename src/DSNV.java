@@ -93,37 +93,49 @@ public class DSNV implements iQUANLY, iTIEMNANG {
 
     @Override
     public void xoa(String Idnv) {
-        int flag = 0;
-        for (NHANVIEN nhanvien : ds) {
-            if (nhanvien.getIdnv().equals(Idnv)) {
-                ds.remove(nhanvien);
-                flag = 1;
-                break;
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            int flag = 0;
+            for (NHANVIEN nhanvien : ds) {
+                if (nhanvien.getIdnv().equals(Idnv)) {
+                    ds.remove(nhanvien);
+                    flag = 1;
+                    break;
+                }
             }
+            if (flag == 0)
+                System.out.println("\nKhong tim thay nhan vien!!");
         }
-        if (flag == 0)
-            System.out.println("\nKhong tim thay nhan vien!!");
     }
 
     @Override
     public void timKiem(String Idnv) {
-        int flag = 0;
-        for (NHANVIEN nhanvien : ds) {
-            if (nhanvien.getIdnv().equals(Idnv)) {
-                nhanvien.xuat();
-                flag = 1;
-                break;
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            int flag = 0;
+            for (NHANVIEN nhanvien : ds) {
+                if (nhanvien.getIdnv().equals(Idnv)) {
+                    nhanvien.xuat();
+                    flag = 1;
+                    break;
+                }
             }
+            if (flag == 0)
+                System.out.println("\nKhong tim thay nhan vien!!");
         }
-        if (flag == 0)
-            System.out.println("\nKhong tim thay nhan vien!!");
     }
 
     @Override
     public void hienThi() {
-        for (NHANVIEN nhanvien : ds) {
-            System.out.println("Nhan vien:");
-            nhanvien.xuat();
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            for (NHANVIEN nhanvien : ds) {
+                System.out.println("\nNhan vien:");
+                nhanvien.xuat();
+            }
         }
     }
 
@@ -168,18 +180,34 @@ public class DSNV implements iQUANLY, iTIEMNANG {
 
     @Override
     public void SX_Soluong() {
-        Collections.sort(ds, (nv1, nv2) -> Integer.compare(nv1.getSL_Ban(), nv2.getSL_Ban()));
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            Collections.sort(ds, (nv1, nv2) -> Integer.compare(nv1.getSL_Ban(), nv2.getSL_Ban()));
+            System.out.println("\nDa sap sep thanh cong.");
+        }
     }
 
     @Override
     public void SX_Ten() {
-        Collections.sort(ds, (nv1, nv2) -> (nv1.getTen()).compareTo((nv2.getTen())));
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            Collections.sort(ds, (nv1, nv2) -> (nv1.getTen()).compareTo((nv2.getTen())));
+            System.out.println("\nDa sap sep thanh cong.");
+        }
     }
 
     @Override
     public void XUAT() {
         Collections.sort(ds, (nv1, nv2) -> Integer.compare(nv1.getSL_Ban(), nv2.getSL_Ban()));
-        ds.get(ds.size()-1);
+        ds.get(ds.size() - 1);
+        NHANVIEN newNhanvien = ds.get(ds.size() - 1);
+        if (ds.isEmpty()) {
+            System.out.println("\nKhong co nhan vien trong danh sach.");
+        } else {
+            newNhanvien.xuat();
+        }
     }
 
 }

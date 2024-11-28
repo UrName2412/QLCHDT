@@ -128,6 +128,7 @@ public class DSKH implements iQUANLY, iTIEMNANG {
             System.out.println("Khong co khach hang nao trong danh sach");
         } else {
             for (KHACHHANG kh : ds) {
+                System.out.printf("\nKhach hang:\n");
                 kh.xuat();
             }
         }
@@ -180,9 +181,7 @@ public class DSKH implements iQUANLY, iTIEMNANG {
             System.out.println("Khong co khach hang nao trong danh sach");
         } else {
             Collections.sort(ds, (kh1, kh2) -> Integer.compare(kh1.getSL_Mua(), kh2.getSL_Mua()));
-            for (KHACHHANG kh : ds) {
-                kh.xuat();
-            }
+            System.out.println("\nDa sap xep thanh cong.");
         }
     }
 
@@ -192,9 +191,7 @@ public class DSKH implements iQUANLY, iTIEMNANG {
             System.out.println("Khong co khach hang nao trong danh sach");
         } else {
             Collections.sort(ds, (kh1, kh2) -> kh1.getTen().compareTo(kh2.getTen()));
-            for (KHACHHANG kh : ds) {
-                kh.xuat();
-            }
+            System.out.println("\nDa sap xep thanh cong.");
         }
     }
 

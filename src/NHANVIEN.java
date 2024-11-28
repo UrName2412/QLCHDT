@@ -19,7 +19,7 @@ public class NHANVIEN extends NGUOI {
         this.SL_Ban = SL_Ban;
         this.luong = luong;
     }
-    
+
     void setIdnv(String idnv) {
         this.idnv = idnv;
     }
@@ -55,18 +55,23 @@ public class NHANVIEN extends NGUOI {
     @Override
     public void xuat() {
         super.xuat();
-        System.out.printf("\nidnv: %5s\n", idnv);
+        int length1=-15,length2=-50;
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","Id nhan vien", idnv);
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","So luong ban",SL_Ban);
+        System.out.printf("%" + length1 + "s: %" + length2 + "d\n","Luong", tinhLuong());
     }
 
     @Override
     public int tinhThuong() {
-        int temp = 0, soluong = 20, tempSlban = SL_Ban;
-        while (tempSlban > 0) {
-            if (tempSlban > soluong) {
-                temp += luong / 10;
-            }
+        int temp = 0, soluong = 10, tempSlban = SL_Ban;
+        while (tempSlban >= soluong) {
+            temp += luong / 50;
             tempSlban -= soluong;
         }
         return temp;
+    }
+
+    public int tinhLuong(){
+        return luong+tinhThuong();
     }
 }

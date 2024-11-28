@@ -8,15 +8,15 @@ class TABLET extends SANPHAM {
     public TABLET() {
         this.banPhim = false;
         soLuong = 0;
-        loai = "Tablet";
+        loai="Tablet";
     }
 
     public TABLET(String idSanPham, String hang, String model, float kichThuoc, float gia, float khoiLuong,
-            int dungLuong, int ram, String chip, boolean banPhim, int soLuong) {
+        int dungLuong, int ram, String chip, boolean banPhim, int soLuong) {
         super(idSanPham, hang, model, kichThuoc, gia, khoiLuong, dungLuong, ram, chip);
         this.banPhim = banPhim;
         this.soLuong = soLuong;
-        loai = "Tablet";
+        loai="Tablet";
     }
 
     @Override
@@ -36,8 +36,9 @@ class TABLET extends SANPHAM {
     @Override
     public void xuat() {
         super.xuat();
-        System.out.printf("Cam ung: %s\n", (banPhim ? "Co" : "Khong"));
-        System.out.printf("So luong: %d\n", soLuong);
+        int length1=-15,length2=-50;
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","Ban phim", (banPhim ? "Co" : "Khong"));
+        System.out.printf("%" + length1 + "s: %" + length2 + "d\n","So luong", soLuong);
     }
 
     public boolean getBanPhim() {

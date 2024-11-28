@@ -139,14 +139,15 @@ public class SANPHAM {
     }
 
     public void xuat() {
-        System.out.printf("Id san pham: %5s\n", idSanPham);
-        System.out.printf("Hang: %10s\n", hang);
-        System.out.printf("Model: %s\n", model);
-        System.out.printf("Kich thuoc: %.2f\n", kichThuoc);
-        System.out.printf("Gia: %.2f\n", gia);
-        System.out.printf("Khoi luong: %.2f\n", khoiLuong);
-        System.out.printf("Dung luong: %d\n", dungLuong);
-        System.out.printf("Ram: %d\n", ram);
-        System.out.printf("Chip: %s\n", chip);
+        int length1=-15,length2=-50;
+        System.out.printf("\n%" + length1 +"s: %" + length2 + "s\n","Id san pham" , idSanPham);
+        System.out.printf("%" + length1 +"s: %" + length2 + "s\n", "Hang", hang);
+        System.out.printf("%" + length1 +"s: %" + length2 + "s\n","Model", model);
+        System.out.printf("%" + length1 + "s: %" + length2 + ".2f\n","Kich thuoc", kichThuoc);
+        System.out.printf("%" + length1 + "s: %" + length2 + ".2f\n","Gia", gia);
+        System.out.printf("%" + length1 + "s: %" + length2 + ".2f\n","Khoi luong", khoiLuong);
+        System.out.printf("%" + length1 + "s: %" + length2 + "d\n","Dung luong", dungLuong);
+        System.out.printf("%" + length1 + "s: %" + length2 + "d\n","Ram", ram);
+        System.out.printf("%" + length1 +"s: %" + length2 + "s\n","Chip", chip);
     }
 }

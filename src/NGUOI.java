@@ -85,11 +85,12 @@ public abstract class NGUOI {
     }
 
     public void xuat() {
-        System.out.printf("\nCccd: %10s", cccd);
-        System.out.printf("\nTen: %s", ten);
-        System.out.printf("\nSdt: %10s", sdt);
-        System.out.printf("\nDia chi: %s", diaChi);
-        System.out.printf("\nNam sinh: %d", namSinh);
+        int length1=-15,length2=-50;
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","Cccd", cccd);
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","Ten", ten);
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","So dien thoai", sdt);
+        System.out.printf("%" + length1 + "s: %" + length2 + "s\n","Dia chi", diaChi);
+        System.out.printf("%" + length1 + "s: %" + length2 + "d\n","Nam sinh", namSinh);
     }
 
     abstract public int tinhThuong();
