@@ -34,8 +34,8 @@ public class DIENTHOAI extends SANPHAM {
     @Override
     public void xuat() {
         super.xuat();
-        System.out.printf("\nCam ung: %s", (camUng ? "Co" : "Khong"));
-        System.out.printf("\nSo luong: %d", soLuong);
+        System.out.printf("Cam ung: %s\n", (camUng ? "Co" : "Khong"));
+        System.out.printf("So luong: %d\n", soLuong);
     }
 
     void setcamUng(boolean camUng) {

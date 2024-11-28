@@ -136,7 +136,7 @@ public class DSSP implements iQUANLY, iTIEMNANG {
             System.out.println("\nKhong co san pham trong danh sach.");
         } else {
             for (SANPHAM sanpham : ds) {
-                System.out.println("\nSan pham:");
+                System.out.print("\nSan pham:");
                 sanpham.xuat();
             }
         }
