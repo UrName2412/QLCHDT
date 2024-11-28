@@ -38,7 +38,7 @@ public class MENU_DSHD {
                             } else if (choice == 2) {
                                 kh.setSL_Mua(HD.getTONGSL());
                                 nv.setSL_Ban(nv.getSL_Ban()+HD.getTONGSL());
-                                dshd.LuuHD(HD);
+                                dshd.LuuHD(HD,kh.getThuong());
                                 System.out.println("Thoat chuong trinh.");
                                 return;
                             }

@@ -10,6 +10,7 @@ public class HOADON {
     private int TONGSL;
     private String MAKH;
     private String MANV;
+    private int giamGia;
     private ArrayList<ChiTietHoaDon> dscthd = new ArrayList<>();
 
     public HOADON() {
@@ -75,6 +76,13 @@ public class HOADON {
         this.TONGSL += cthd.getSOLUONG();
         this.TONGTIEN += cthd.getSOLUONG() * cthd.getGia();
         dscthd.add(cthd);
+    }
+
+    public void giamGia(int giamGia){
+        if (giamGia!=0){
+            TONGTIEN = TONGTIEN - (TONGTIEN*giamGia/100);
+            this.giamGia=giamGia;
+        }
     }
 
     public String getMAKH() {

@@ -20,7 +20,8 @@ public class DSHD {
         newHD.nhapchitiet(ID, Gia,dssp);
     }
 
-    public void LuuHD(HOADON newHD) {
+    public void LuuHD(HOADON newHD,int giamGia) {
+        newHD.giamGia(giamGia);
         dshd.add(newHD);
     }
 
