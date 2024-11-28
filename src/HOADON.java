@@ -132,6 +132,7 @@ public class HOADON {
                     cthd.getGia() * cthd.getSOLUONG());
         }
         System.out.println("Tong so luong: "+ TONGSL);
+        System.out.println("Giam gia : " + giamGia + "%");
         System.out.println("Thoi Gian: " + ThoiGian);
         System.out.println("Tong Tien: " + TONGTIEN);
     }
