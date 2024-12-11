@@ -86,7 +86,7 @@ public class HOADON {
 
     public void giamGia(int giamGia){
         if (giamGia!=0){
-            TONGTIEN = TONGTIEN - (TONGTIEN*(giamGia/100));
+            TONGTIEN = TONGTIEN - (TONGTIEN*giamGia/100);
             this.giamGia=giamGia;
         }
     }
