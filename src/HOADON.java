@@ -16,10 +16,11 @@ public class HOADON {
     public HOADON() {
         LOAISP = 0;
         TONGSL = 0;
+        giamGia = 0;
     }
 
     // constructor
-    public HOADON(LocalDate ThoiGian, int MAHOADON, double TONGTIEN, int TONGSL, String MAKH, String MAVN, int LOAISP) {
+    public HOADON(LocalDate ThoiGian, int MAHOADON, double TONGTIEN, int TONGSL, String MAKH, String MAVN, int LOAISP, int GIAMGIA) {
         this.LOAISP = LOAISP;
         this.ThoiGian = ThoiGian;
         this.MAHOADON = MAHOADON;
@@ -27,9 +28,14 @@ public class HOADON {
         this.TONGSL = TONGSL;
         this.MAKH = MAKH;
         this.MANV = MAVN;
+        this.giamGia = GIAMGIA;
     }
 
     // Getter
+    public int getGiamGia() {
+        return giamGia;
+    }
+    
     public String getMANV() {
         return MANV;
     }
@@ -80,7 +86,7 @@ public class HOADON {
 
     public void giamGia(int giamGia){
         if (giamGia!=0){
-            TONGTIEN = TONGTIEN - (TONGTIEN*giamGia/100);
+            TONGTIEN = TONGTIEN - (TONGTIEN*(giamGia/100));
             this.giamGia=giamGia;
         }
     }
@@ -129,7 +135,7 @@ public class HOADON {
         System.out.printf("|%10s|%10s|%10s|%10s|\n", "San Pham", "So Luong", "Don gia", "Thanh Tien");
         for (ChiTietHoaDon cthd : dscthd) {
             System.out.printf("|%10s|%10d|%10.2f|%10.2f|\n", cthd.getID(), cthd.getSOLUONG(), cthd.getGia(),
-                    cthd.getGia() * cthd.getSOLUONG());
+            cthd.getGia() * cthd.getSOLUONG());
         }
         System.out.println("Tong so luong: "+ TONGSL);
         System.out.println("Giam gia : " + giamGia + "%");

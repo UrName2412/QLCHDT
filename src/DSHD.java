@@ -62,8 +62,9 @@ public class DSHD {
                     double TONGTIEN = Double.parseDouble(arr[4].trim());
                     LocalDate ThoiGian = LocalDate.parse(arr[5].trim(), formatter);
                     int LOAISP = Integer.parseInt(arr[6].trim());
+                    int GIAMGIA = Integer.parseInt(arr[7].trim());
 
-                    HOADON newHoadon = new HOADON(ThoiGian, MAHOADON, TONGTIEN, TONGSL, MAKH, MANV, LOAISP);
+                    HOADON newHoadon = new HOADON(ThoiGian, MAHOADON, TONGTIEN, TONGSL, MAKH, MANV, LOAISP,GIAMGIA);
                     for (int i = 0; i < LOAISP; i++) {
                         String detailLine = input.readLine();
                         if (detailLine != null) {
@@ -90,7 +91,7 @@ public class DSHD {
             for (HOADON hoadon : dshd) {
                 output.write(hoadon.getMAHOADON() + "," + hoadon.getMAKH() + "," + hoadon.getMANV() + ","
                         + hoadon.getTONGSL() + "," + hoadon.getTONGTIEN() + ","
-                        + hoadon.getThoiGian().format(formatter) + "," + hoadon.getLOAISP());
+                        + hoadon.getThoiGian().format(formatter) + "," + hoadon.getLOAISP() + "," + hoadon.getGiamGia());
                 output.newLine();
 
                 for (ChiTietHoaDon chiTietHoaDon : hoadon.getDscthd()) {

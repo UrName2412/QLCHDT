@@ -8,12 +8,12 @@ public class MENU_DSHD {
         HOADON HD = new HOADON();
         boolean fo1 = false;
         boolean fo3 = false;
-        System.out.print("Nhap Ma Khach Hang: ");
-        String temp = sc.nextLine();
         System.out.print("Nhap Ma Nhan Vien: ");
         String temp1 = sc.nextLine();
         for (NHANVIEN nv : dsnv.getDs()) {
             if (nv.getIdnv().equals(temp1)) {
+                System.out.print("Nhap Ma Khach Hang: ");
+                String temp = sc.nextLine();
                 for (KHACHHANG kh : dskh.getDs()) {
                     if (kh.getIdkh().equals(temp)) {
                         fo1 = true;
@@ -38,7 +38,7 @@ public class MENU_DSHD {
                             } else if (choice == 2) {
                                 kh.setSL_Mua(HD.getTONGSL());
                                 nv.setSL_Ban(nv.getSL_Ban()+HD.getTONGSL());
-                                dshd.LuuHD(HD,kh.getThuong());
+                                dshd.LuuHD(HD,kh.tinhThuong());
                                 System.out.println("Thoat chuong trinh.");
                                 return;
                             }

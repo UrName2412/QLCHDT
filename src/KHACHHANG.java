@@ -49,21 +49,15 @@ public class KHACHHANG extends NGUOI {
     public void xuat() {
         super.xuat();
         System.out.println("\nId: " + idkh);
-        System.out.println("So luong da mua: " + SL_Mua);
+        System.out.println("Giam gia: "+giamGia);
     }
 
     @Override
     public int tinhThuong() {
-        int thuong = 0, tempMua = SL_Mua;
-        while (tempMua > 0) {
-            if (tempMua >= 10) {
-                thuong += giamGia * 10;
-                tempMua -= 10;
-            } else {
-                thuong += giamGia * tempMua;
-                tempMua = 0;
-            }
+        while (SL_Mua >= 10) {
+            giamGia += 2;
+            SL_Mua -= 10;
         }
-        return thuong;
+        return giamGia;
     }
 }
