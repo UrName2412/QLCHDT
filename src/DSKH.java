@@ -113,12 +113,17 @@ public class DSKH implements iQUANLY, iTIEMNANG {
         if (ds.isEmpty()) {
             System.out.println("Khong co khach hang nao trong danh sach");
         } else {
+            boolean found = false;
             for (KHACHHANG x : ds) {
                 if (x.getIdkh().equals(id)) {
+                    found = true;
                     x.xuat();
+                    break;
                 }
             }
-            System.out.println("Khong tim thay khach hang");
+            if (!found) {
+                System.out.println("Khong tim thay khach hang");
+            }
         }
     }
 
