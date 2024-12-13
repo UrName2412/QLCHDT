@@ -20,7 +20,8 @@ public class HOADON {
     }
 
     // constructor
-    public HOADON(LocalDate ThoiGian, int MAHOADON, double TONGTIEN, int TONGSL, String MAKH, String MAVN, int LOAISP, int GIAMGIA) {
+    public HOADON(LocalDate ThoiGian, int MAHOADON, double TONGTIEN, int TONGSL, String MAKH, String MAVN, int LOAISP,
+            int GIAMGIA) {
         this.LOAISP = LOAISP;
         this.ThoiGian = ThoiGian;
         this.MAHOADON = MAHOADON;
@@ -35,10 +36,11 @@ public class HOADON {
     public int getGiamGia() {
         return giamGia;
     }
-    
+
     public String getMANV() {
         return MANV;
     }
+
     public double getTONGTIEN() {
         return TONGTIEN;
     }
@@ -56,25 +58,26 @@ public class HOADON {
     }
 
     // Prototype
-    public void nhapchitiet(String ID, float Gia,DSSP dssp) {
+    public void nhapchitiet(String ID, float Gia, DSSP dssp) {
         ChiTietHoaDon cthd = new ChiTietHoaDon();
         cthd.nhap(ID, Gia);
-        
-        for(SANPHAM sp: dssp.getDs()){
-            if(sp.getIdSanPham().equals(ID)){
-                if(sp instanceof DIENTHOAI dt){
-                    if(cthd.getSOLUONG() > dt.getSoLuong()){
+
+        for (SANPHAM sp : dssp.getDs()) {
+            if (sp.getIdSanPham().equals(ID)) {
+                if (sp instanceof DIENTHOAI dt) {
+                    if (cthd.getSOLUONG() > dt.getSoLuong()) {
                         System.out.println("Khong du so luong san pham con ton!!!");
                         return;
                     }
                     dt.setSoLuong(dt.getSoLuong() - cthd.getSOLUONG());
-                }
-                else if(sp instanceof TABLET tablet){
-                    if(cthd.getSOLUONG() > tablet.getsoLuong()){
+                    SANPHAM.setsoLuongTong(SANPHAM.getsoLuongTong() - cthd.getSOLUONG());
+                } else if (sp instanceof TABLET tablet) {
+                    if (cthd.getSOLUONG() > tablet.getsoLuong()) {
                         System.out.println("Khong du so luong san pham con ton!!!");
                         return;
                     }
                     tablet.setsoLuong(tablet.getsoLuong() - cthd.getSOLUONG());
+                    SANPHAM.setsoLuongTong(SANPHAM.getsoLuongTong() - cthd.getSOLUONG());
                 }
             }
         }
@@ -84,10 +87,10 @@ public class HOADON {
         dscthd.add(cthd);
     }
 
-    public void giamGia(int giamGia){
-        if (giamGia!=0){
-            TONGTIEN = TONGTIEN - (TONGTIEN*giamGia/100);
-            this.giamGia=giamGia;
+    public void giamGia(int giamGia) {
+        if (giamGia != 0) {
+            TONGTIEN = TONGTIEN - (TONGTIEN * giamGia / 100);
+            this.giamGia = giamGia;
         }
     }
 
@@ -107,13 +110,21 @@ public class HOADON {
         dscthd.add(chiTietHoaDon);
     }
 
-    public boolean nhapMAKH(String MaKH,String MaNV, DSHD dshd) {
+    public boolean nhapMAKH(String MaKH, String MaNV, DSHD dshd) {
         boolean daco = false;
         ThoiGian = LocalDate.now();
         this.MAKH = MaKH;
         this.MANV = MaNV;
-        System.out.print("Nhap Ma Hoa Don(int): ");
-        int MAHOADON = sc.nextInt();
+        int MAHOADON = -1;
+        while (MAHOADON == -1) {
+            try {
+                System.out.print("Nhap Ma Hoa Don(int): ");
+                MAHOADON = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Vui long nhap so cho ID san pham.");
+                sc.nextLine();
+            }
+        }
         for (HOADON hd : dshd.getDshd()) {
             if (hd.getMAHOADON() == MAHOADON) {
                 daco = true;
@@ -121,7 +132,7 @@ public class HOADON {
         }
         if (!daco)
             this.MAHOADON = MAHOADON;
-        else{
+        else {
             System.out.println("Ma hoa don da ton tai.");
         }
         return daco;
@@ -130,14 +141,14 @@ public class HOADON {
     public void xuat() {
         System.out.println("======================================================");
         System.out.println("Ma hoa don: " + MAHOADON);
-        System.out.println("Ma khach hang: " +  MAKH);
+        System.out.println("Ma khach hang: " + MAKH);
         System.out.println("Ma nhan vien: " + MANV);
         System.out.printf("|%10s|%10s|%10s|%10s|\n", "San Pham", "So Luong", "Don gia", "Thanh Tien");
         for (ChiTietHoaDon cthd : dscthd) {
             System.out.printf("|%10s|%10d|%10.2f|%10.2f|\n", cthd.getID(), cthd.getSOLUONG(), cthd.getGia(),
-            cthd.getGia() * cthd.getSOLUONG());
+                    cthd.getGia() * cthd.getSOLUONG());
         }
-        System.out.println("Tong so luong: "+ TONGSL);
+        System.out.println("Tong so luong: " + TONGSL);
         System.out.println("Giam gia : " + giamGia + "%");
         System.out.println("Thoi Gian: " + ThoiGian);
         System.out.println("Tong Tien: " + TONGTIEN);

@@ -11,21 +11,24 @@ public class IN_MENU {
     }
 
     public int menu(String string, boolean isDssp_Dskh_Dsnv) {
+        int temp = 1;
         do {
             System.out.printf("\n%" + left + "s%" + Math.abs(widthString) + "s|\n", "|",
                     "=".repeat(Math.abs(widthString)));
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "1. Them " + string + ".");
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "2. Cap nhat " + string + ".");
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "3. Xoa " + string + ".");
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "4. Tim kiem " + string + ".");
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "5. Hien thi " + string + ".");
+            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Them " + string + ".");temp++;
+            if(isDssp_Dskh_Dsnv){
+                System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Cap nhat " + string + ".");temp++;
+                System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Xoa " + string + ".");temp++;
+            }
+            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Tim kiem " + string + ".");temp++;
+            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Hien thi " + string + ".");temp++;
             System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",
-                    "6. Sap xep danh sach " + string + " theo so luong.");
+                   +temp+ ". Sap xep danh sach " + string + " theo so luong.");temp++;
             System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",
-                    "7. Sap xep danh sach " + string + " theo ten.");
+                   +temp+ ". Sap xep danh sach " + string + " theo ten.");temp++;
             if (isDssp_Dskh_Dsnv)
-                System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "8. Xuat " + string + " tiem nang.");
-            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|", "0. Thoat.");
+                System.out.printf("%" + left + "s%" + widthString + "s|\n", "|",+temp+ ". Xuat " + string + " tiem nang.");temp++;
+            System.out.printf("%" + left + "s%" + widthString + "s|\n", "|","0. Thoat.");
             System.out.printf("%" + left + "s%30s|\n", "|", "=".repeat(Math.abs(widthString)));
             System.out.printf("Lua chon: ");
             try {

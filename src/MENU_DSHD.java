@@ -71,18 +71,15 @@ public class MENU_DSHD {
                     return;
                 }
                 case 1 -> TaoHD(dshd, dskh, dsnv, dssp);
-                case 2, 3 -> {
-                    System.out.println("Tinh nang dang duoc cap nhat!!!");
-                }
-                case 4 -> {
+                case 2 -> {
                     System.out.printf("Nhap ID Hoa Don: ");
                     int tempIDkh = sc.nextInt();
                     sc.nextLine();
                     dshd.timKiem(tempIDkh);
                 }
-                case 5 -> dshd.hienThi();
-                case 6 -> dshd.SX_Soluong();
-                case 7 -> dshd.SX_Ten();
+                case 3 -> dshd.hienThi();
+                case 4 -> dshd.SX_Soluong();
+                case 5 -> dshd.SX_Ten();
                 default -> System.out.println("Nhap sai, vui long nhap lai.");
             }
         }

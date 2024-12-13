@@ -17,35 +17,36 @@ public class DSHD {
     }
 
     public void ThemChiTiet(String ID, float Gia, HOADON newHD, DSSP dssp) {
-        newHD.nhapchitiet(ID, Gia,dssp);
+        newHD.nhapchitiet(ID, Gia, dssp);
     }
 
-    public void LuuHD(HOADON newHD,int giamGia) {
-        newHD.giamGia(giamGia);
-        dshd.add(newHD);
-    }
-
-    public void HienThi() {
-        if (dshd.isEmpty()) {
-            System.out.println("Khong ton tai danh sach hoa don.");
+    public void LuuHD(HOADON newHD, int giamGia) {
+        if (newHD.getLOAISP() != 0) {
+            newHD.giamGia(giamGia);
+            dshd.add(newHD);
         }
-        for (HOADON hd : dshd) {
-            System.out.println(hd);
+        else{
+            System.out.println("Khong co san pham nao.");
+            return;
         }
     }
 
     public void timKiem(int MAHOADON) {
-        boolean found = false;
-        for (HOADON hd : dshd) {
-            if (hd.getMAHOADON() == MAHOADON) {
-                System.out.println("Da tim thay hoa don: ");
-                System.out.println(hd);
-                found = true;
-                break;
+        if (dshd.isEmpty()) {
+            System.out.println("Danh sach hien dang trong.");
+        } else {
+            boolean found = false;
+            for (HOADON hd : dshd) {
+                if (hd.getMAHOADON() == MAHOADON) {
+                    System.out.println("Da tim thay hoa don: ");
+                    System.out.println(hd);
+                    found = true;
+                    break;
+                }
             }
-        }
-        if (!found) {
-            System.out.println("Khong tim thay ma hoa don " + MAHOADON);
+            if (!found) {
+                System.out.println("Khong tim thay ma hoa don " + MAHOADON);
+            }
         }
     }
 
@@ -64,7 +65,7 @@ public class DSHD {
                     int LOAISP = Integer.parseInt(arr[6].trim());
                     int GIAMGIA = Integer.parseInt(arr[7].trim());
 
-                    HOADON newHoadon = new HOADON(ThoiGian, MAHOADON, TONGTIEN, TONGSL, MAKH, MANV, LOAISP,GIAMGIA);
+                    HOADON newHoadon = new HOADON(ThoiGian, MAHOADON, TONGTIEN, TONGSL, MAKH, MANV, LOAISP, GIAMGIA);
                     for (int i = 0; i < LOAISP; i++) {
                         String detailLine = input.readLine();
                         if (detailLine != null) {
@@ -91,7 +92,8 @@ public class DSHD {
             for (HOADON hoadon : dshd) {
                 output.write(hoadon.getMAHOADON() + "," + hoadon.getMAKH() + "," + hoadon.getMANV() + ","
                         + hoadon.getTONGSL() + "," + hoadon.getTONGTIEN() + ","
-                        + hoadon.getThoiGian().format(formatter) + "," + hoadon.getLOAISP() + "," + hoadon.getGiamGia());
+                        + hoadon.getThoiGian().format(formatter) + "," + hoadon.getLOAISP() + ","
+                        + hoadon.getGiamGia());
                 output.newLine();
 
                 for (ChiTietHoaDon chiTietHoaDon : hoadon.getDscthd()) {
@@ -110,8 +112,12 @@ public class DSHD {
     }
 
     public void hienThi() {
-        for (HOADON hd : dshd) {
-            hd.xuat();
+        if (dshd.isEmpty()) {
+            System.out.println("Khong co hoa don nao!!");
+        } else {
+            for (HOADON hd : dshd) {
+                hd.xuat();
+            }
         }
     }
 

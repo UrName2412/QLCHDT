@@ -118,6 +118,10 @@ public class SANPHAM {
         return soLuongTong;
     }
 
+    public static void setsoLuongTong(int soLuongTong){
+        SANPHAM.soLuongTong=soLuongTong;
+    }
+
     public void nhap(String idSanPham) {
         this.idSanPham = idSanPham;
         System.out.printf("Nhap hang: ");
