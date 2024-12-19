@@ -136,8 +136,10 @@ public class SANPHAM {
         khoiLuong = inp.nextFloat();
         System.out.printf("Dung luong: ");
         dungLuong = inp.nextInt();
+        inp.nextLine();
         System.out.printf("Ram: ");
         ram = inp.nextInt();
+        inp.nextLine();
         System.out.printf("Chip: ");
         chip = inp.nextLine();
     }
